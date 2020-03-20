@@ -1,0 +1,35 @@
+version: "3.3"
+services:
+  consul_server:
+    build: ./consul
+    container_name: badger
+    ports:
+      - 8500:8500
+      - 8600:8600/udp
+    command: agent -server -ui -node=server-1 -bootstrap-expect=1 -client=0.0.0.0 -dns-port=53 -recursor=127.0.0.11
+    environment:
+      - CONSUL_ALLOW_PRIVILEGED_PORTS=true
+  consul_client:
+    image: consul:latest
+    container_name: fox
+    links:
+      - "consul_server:consul_server"
+    command: agent -node=client-1 -join=consul_server
+  counting_service:
+    build: ./couting_service
+    container_name: weasel
+    links:
+      - "consul_server:consul_server"
+    ports:
+      - 9001:9001
+  python_app:
+    build: ./python_app
+    container_name: cat
+    links:
+      - "consul_server:consul_server"
+      - "custom_redis:custom_redis"
+    ports:
+      - 5000:5000
+  custom_redis:
+    build: ./redis
+    container_name: rabbit

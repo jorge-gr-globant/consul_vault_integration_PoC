@@ -1,0 +1,2 @@
+JSON.SET python_conf . '{"config_python_app": {"key1" : "val1", "key2" : "val2"}}'
+JSON.SET dotnet_conf . '{"config_dotnet_app": {"nkey1" : "nval1", "nkey2" : "nval2"}}'
