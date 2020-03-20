@@ -1,0 +1,11 @@
+cloudbees-folder:6.11.1
+credentials-binding:1.21
+workflow-step-api:2.22
+ssh-credentials:1.17.3
+plain-credentials:1.5
+credentials:2.3.3
+structs:1.20
+configuration-as-code:1.35
+script-security:1.70
+job-dsl:1.76
+hashicorp-vault-plugin:3.2.0

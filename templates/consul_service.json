@@ -1,0 +1,1 @@
+{"service": {"name": "NAME", "tags": ["go"], "port": PORT, "address" : "IP"}}

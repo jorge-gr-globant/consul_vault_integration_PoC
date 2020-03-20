@@ -1,0 +1,26 @@
+{
+  "listener": [
+    {
+      "tcp": {
+        "address": "0.0.0.0:8200",
+        "tls_disable": 1
+      }
+    }
+  ],
+  "backend": {
+    "file": {
+      "path": "/vault/file"
+    }
+  },
+  "default_lease_ttl": "168h",
+  "max_lease_ttl": "720h",
+  "storage": [
+    {
+      "consul": {
+        "address": "172.19.0.2:8500",
+        "token": "79714558-67ca-2234-0c04-030028c32ae3",
+        "path": "vault/"
+      }
+    }
+  ]
+}
