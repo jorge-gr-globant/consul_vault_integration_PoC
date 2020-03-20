@@ -1,5 +1,9 @@
 # Smile Direct Club Services PoC
 
+## What is this?
+This is a PoC of consul service discovery and Configuration management with python.
+This is meant to showcase the base functionality without consul ACL's enabled.
+
 ## Usage
 Run `./up.sh`
 ## Endpoints
