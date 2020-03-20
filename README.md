@@ -1,6 +1,6 @@
 # Smile Direct Club Consul, Vault & Jenkins Services PoC
 
-# What is this?
+## What is this?
 This is a PoC of consul service discovery, Configuration management and Secrets Management integration with python and Jenkins.
 This is meant to showcase the base functionality with consul ACL's enabled and Vault.
 
