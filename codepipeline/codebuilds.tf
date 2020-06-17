@@ -1,7 +1,7 @@
 resource "aws_codebuild_project" "build_project" {
   name          = "build_project"
   description   = "Sample build project"
-  build_timeout = 60
+  build_timeout = 5
   service_role  = aws_iam_role.codepipeline-role.arn
 
   artifacts {
