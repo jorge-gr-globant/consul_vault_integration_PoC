@@ -76,7 +76,7 @@ resource "aws_iam_role_policy" "codepipeline-policy" {
       ],
       "Resource": [
           "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/*",
-          "arn:aws:iam::${data.aws_caller_identity.current.account_id}:instance-profile/*",
+          "arn:aws:iam::${data.aws_caller_identity.current.account_id}:instance-profile/*"
       ]
     },
     {
