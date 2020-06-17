@@ -1,0 +1,11 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - echo "Pre Building Consul AMI for testing"
+  build:
+    commands:
+      - echo "Building Consul AMI"
+  post_build:
+    commands:
+      - echo "ensuring that only 3 amis for vault exist"

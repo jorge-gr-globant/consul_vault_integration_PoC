@@ -3,7 +3,7 @@ resource "aws_codepipeline" "codepipeline" {
   role_arn = aws_iam_role.codepipeline-role.arn
 
   artifact_store {
-    location = aws_s3_bucket.s3-codebuild-vault.bucket
+    location = aws_s3_bucket.s3-bucket.bucket
     type     = "S3"
     encryption_key {
       id   = aws_kms_key.vault_s3_kms_key.arn

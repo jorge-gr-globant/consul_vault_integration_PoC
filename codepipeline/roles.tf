@@ -26,6 +26,14 @@ resource "aws_iam_role_policy" "codepipeline-policy" {
 {
   "Version": "2012-10-17",
   "Statement": [
+    {
+      "Sid": "s3",
+      "Effect": "Allow",
+      "Action": [
+        "s3:*"
+      ],
+      "Resource": "*"
+    },
     { 
       "Sid": "codebuild",
       "Effect": "Allow",
@@ -35,10 +43,17 @@ resource "aws_iam_role_policy" "codepipeline-policy" {
       "Resource": "arn:aws:codebuild:${var.aws_region}:${data.aws_caller_identity.current.account_id}:project/build_project"
     },
     {
-      "Sid": "s3",
+      "Sid": "ec2",
       "Effect":"Allow",
       "Action": [
-        "s3:*"
+        "ec2:CreateNetworkInterface",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeDhcpOptions",
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DeleteNetworkInterface",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeVpcs"
       ],
       "Resource": [
         "*"

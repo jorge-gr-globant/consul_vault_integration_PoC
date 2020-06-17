@@ -10,9 +10,9 @@ resource "aws_codebuild_project" "build_project" {
 
   environment {
     compute_type                = "BUILD_GENERAL1_SMALL"
-    image                       = "alpine:latest"
+    image                       = "aws/codebuild/amazonlinux2-x86_64-standard:1.0"
     type                        = "LINUX_CONTAINER"
-    image_pull_credentials_type = "SERVICE_ROLE"
+    #image_pull_credentials_type = "SERVICE_ROLE"
   }
 
   logs_config {
@@ -24,8 +24,8 @@ resource "aws_codebuild_project" "build_project" {
   
   source {
     type      = "S3"
-    location  = "${aws_s3_bucket.s3-codebuild-vault.bucket}/${var.source_bucket_key}"
-    buildspec = "packer/vault-base/buildspec.yml"
+    location  = "${aws_s3_bucket.s3-bucket.bucket}/${var.source_bucket_key}"
+    buildspec = "codepipeline/buildspec.yml"
   }
 
   source_version = "master"

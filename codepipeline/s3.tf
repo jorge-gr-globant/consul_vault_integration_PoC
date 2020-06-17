@@ -11,8 +11,8 @@ resource "aws_kms_grant" "kms_vault_grant" {
 }
 
 
-resource "aws_s3_bucket" "s3-codebuild-vault" {
-  bucket        = "sdc-pipeline-vault"
+resource "aws_s3_bucket" "s3-bucket" {
+  bucket        = "test-s3-pipeline-xyz"
   acl           = "private"
   force_destroy = true
 }
