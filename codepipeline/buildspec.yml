@@ -2,8 +2,8 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - curl -fsSL https://raw.githubusercontent.com/thii/aws-codebuild-extras/master/install >> extras.sh
-      - . ./extras.sh
+      - GIT_MESSAGE=$(http GET https://api.github.com/repos/jorge-gr-globant/consul_vault_integration_PoC/commits | jq '.[0].commit.message')
+      - if [[ $GIT_MESSAGE == *skip_ci*  ]]; exit 1; fi
   build:
     commands:
       - echo $CODEBUILD_GIT_MESSAGE
