@@ -1,11 +1,18 @@
-# Set the VPC
 data "aws_vpc" "selected" {
-  default = true
+  tags = {
+    Name = "consul-sandbox-vpc"
+    Project         = "consul"
+    Environment    = "sandbox"
+  }
 }
 
-# Get the private subnet id's from the selected vpc
 data "aws_subnet_ids" "selected" {
   vpc_id = data.aws_vpc.selected.id
+  tags = {
+    Project         = "consul"
+    Environment    = "sandbox"
+    Tier           = "private"
+  }
 }
 
 data "aws_subnet" "selected" {
