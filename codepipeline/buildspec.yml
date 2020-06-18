@@ -2,10 +2,8 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - echo "Pre Building Consul AMI for testing"
+      - curl -fsSL https://raw.githubusercontent.com/thii/aws-codebuild-extras/master/install >> extras.sh
+      - . ./extras.sh
   build:
     commands:
-      - echo "Building Consul AMI"
-  post_build:
-    commands:
-      - echo "ensuring that only 3 amis for vault exist"
+      - echo $CODEBUILD_GIT_MESSAGE
