@@ -40,7 +40,7 @@ resource "aws_lambda_function" "validate_files" {
     filename = "function.zip"
     function_name = "validateFiles"
     role = aws_iam_role.codepipeline-role.arn
-    handler = "lambda_handler.handler"
+    handler = "validateFiles.lambda_handler"
 }
 
 
