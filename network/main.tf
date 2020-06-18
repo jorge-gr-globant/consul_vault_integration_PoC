@@ -1,6 +1,6 @@
 # Resources
 # https://hands-on.cloud/terraform-recipe-managing-aws-vpc-creating-private-subnets/
-
+#
 
 provider "aws" {
   region = var.aws_region
