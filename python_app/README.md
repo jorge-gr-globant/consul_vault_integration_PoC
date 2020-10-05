@@ -2,61 +2,61 @@
 
 class ConsulClient (host='127.0.0.1', port=8500, scheme='http')
 ```
-Generate connection to Consul
+Generate Consul connection 
 host   -> Consul address
 port   -> Consul port
-scheme -> Protocol to establish connection can be http or https 
+scheme -> Connection protocol can be http or https 
 ```
    
 - classmethod ConsulClient.**connection()**
     ```
-    Returns the on going consul connection.
+    Return ongoing Consul connection.
     ```
 
 
 class ConsulClient.**kv**
 ```
-The KV endpoint is used to expose a simple key/value store.
-This can be used to store service configurations or other meta data in a simple way.
+KV endpoint exposes simple key/value store.
+Simply stores service configurations, or other metadata.
 ```
 
 - classmethod **get**(key='')
     ```
-    Returns the data for the specified key.
+    Return specified key data.
     ```
 
 - classmethod **set**(key='', data='')
     ```
-    Sets the data for the specified key.
-    Returns a boolean status of the operation.
+    Set specified key data.
+    Return operation's boolean status.
     ```
     
 - classmethod **delete**(key='')
     ```
-    Deletes a single key or if recurse is True, all keys sharing a prefix.
-    Returns a boolean status of the operation.
+    Deletes single key, or all keys sharing prefix (if recurse is True).
+    Return operation's boolean status.
     ```
     
 class ConsulClient.**services**
 ```
-The Services endpoint is used to register/deregister new services on consul.
+Services endpoint registers/deregisters new Consul services.
 ```
 - classmethod **get**(service_name='')
     ```
-    Returns the data for the specified service name.
+    Return specified service name data.
     ```
 - classmethod **set**(service_name='', address='', port='', tags=None)
     ```
-    Sets the specified service name with its proper configuration address, port or tags.
-    Returns a boolean status of the operation.
+    Set specified service name with proper configuration address, port or tags.
+    Return operation's boolean status.
     ```
 - classmethod **list**()
     ```
-    Returns a list of all services registered on Consul.
+    Return registered Consul services list.
     
     ```
 - classmethod **delete**(service_name='')
     ```
-    Deletes the specified service name.
-    Returns a boolean status of the operation.
+    Delete specified service name.
+    Return operation's boolean status.
     ```
